@@ -2,7 +2,7 @@
 This app is for demonstration purpose which uses Google Sign in with Firebase for developers who want to integrate Google SignIn in their Android App
 
 ![](readmeImages/image1.jpeg)
-![](readmeImages/image1.jpeg)
+![](readmeImages/image2.jpeg)
 
 There are 2 pages in the app, one for signing in and other for signing out. To run this app in android studio you need to clone or download project. But app won't compile without a specific json file from firebase. So following are the steps required to get that file.
 
