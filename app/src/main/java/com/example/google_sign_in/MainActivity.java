@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         if (account != null) {
             Toast.makeText(this, account.getDisplayName(), Toast.LENGTH_LONG).show();
             startActivity(new Intent(MainActivity.this, HomePage.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+            finishAffinity();
         } else Toast.makeText(this, "No user", Toast.LENGTH_LONG).show();
     }
 
