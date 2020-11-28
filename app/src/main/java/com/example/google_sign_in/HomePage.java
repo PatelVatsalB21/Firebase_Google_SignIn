@@ -22,7 +22,8 @@ public class HomePage extends AppCompatActivity {
     private GoogleSignInClient mGoogleSignInClient;
     TextView userName;
     FirebaseAuth mAuth;
-
+    FirebaseUser user;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +34,8 @@ public class HomePage extends AppCompatActivity {
         revokeAccess = findViewById(R.id.RevokeAccess);
 
         mAuth = FirebaseAuth.getInstance();
-
+        user = mAuth.getCurrentUser();
+        
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
@@ -53,13 +55,14 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mAuth.signOut();
-                mGoogleSignInClient.signOut().addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
+                mGoogleSignInClient.signOut()
+                    
+                user = mAuth.getCurrentUser();
+                if(user == null){
                         Toast.makeText(HomePage.this, "Signed Out Successfully", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(HomePage.this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-                    }
-                });
+                     finishAffinity();
+                }
             }
         });
 
@@ -67,14 +70,13 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mAuth.signOut();
-                mGoogleSignInClient.revokeAccess().addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
+                mGoogleSignInClient.revokeAccess();
+                user = mAuth.getCurrentUser();
+                if(user == null){
                         Toast.makeText(HomePage.this, "Signed Out Successfully", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(HomePage.this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-
-                    }
-                });
+                    finishAffinity();
+                }
             }
         });
 
