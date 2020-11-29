@@ -18,5 +18,5 @@ There are 2 pages in the app, one for signing in and other for signing out. To r
 If you follow this 7 steps you will not face any of the error.
 
 If this project helps you, please give a star to it.
-Testing
+Testing pull request
 Thank you.
