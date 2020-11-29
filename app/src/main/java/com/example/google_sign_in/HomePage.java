@@ -15,6 +15,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class HomePage extends AppCompatActivity {
 
@@ -55,7 +56,7 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mAuth.signOut();
-                mGoogleSignInClient.signOut()
+                mGoogleSignInClient.signOut();
                     
                 user = mAuth.getCurrentUser();
                 if(user == null){
@@ -86,6 +87,8 @@ public class HomePage extends AppCompatActivity {
         if (account != null) {
             Toast.makeText(this, account.getDisplayName(), Toast.LENGTH_LONG).show();
         } else Toast.makeText(this, "No user", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Testing", Toast.LENGTH_SHORT).show();
+
     }
 
 }
