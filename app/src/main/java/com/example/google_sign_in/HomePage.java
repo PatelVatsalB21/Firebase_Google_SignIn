@@ -55,8 +55,7 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mAuth.signOut();
-                mGoogleSignInClient.signOut()
-                    
+                mGoogleSignInClient.signOut();
                 user = mAuth.getCurrentUser();
                 if(user == null){
                         Toast.makeText(HomePage.this, "Signed Out Successfully", Toast.LENGTH_SHORT).show();
